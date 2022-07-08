@@ -18,7 +18,9 @@ open class ServiceManager<T>(private val context: Context) : KoinComponent {
     protected inline fun <reified T> create(): T {
         val retrofit = Retrofit.Builder()
             .baseUrl("")
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .addConverterFactory(
+                GsonConverterFactory.create(GsonBuilder().setLenient().create())
+            )
             .client(getOkHttpClient().build())
             .build()
 

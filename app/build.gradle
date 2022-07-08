@@ -51,8 +51,16 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    // Gson
+    implementation "com.google.code.gson:gson:$gson_version"
+
     //  Koin
     implementation "io.insert-koin:koin-android:$koin_version"
+
+    //  Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_viewmodel"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime"
 
     //  OkHttp
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
@@ -60,5 +68,9 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    //  ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_viewmodel"
 
 }
