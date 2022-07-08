@@ -1,4 +1,4 @@
-package com.wallace.design_system_android
+package com.wallace.design_system
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
