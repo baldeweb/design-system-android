@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.wallace.design_system.data.service.ServiceManager
 import com.wallace.design_system.data.utils.LogUtils
 import com.wallace.design_system.data.utils.SingleLiveEvent
-import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.*
+import retrofit2.Response
+import kotlin.coroutines.CoroutineContext
 
 open class BaseViewModel: ViewModel() {
 
@@ -35,5 +39,22 @@ open class BaseViewModel: ViewModel() {
 
     protected fun dismissLoading() {
         _shouldShowLoading.postValue(false)
+    }
+
+    protected suspend fun<T> serviceCaller(
+        api: Response<T>?,
+        onResponse: suspend (T?) -> Unit,
+        onErrorResponse: (String) -> Unit
+    ) {
+        showLoading()
+        CoroutineScope(Dispatchers.IO).launch {
+            ServiceManager<T>(_currentContext.value ?: return@launch).serviceCaller(api, {
+                dismissLoading()
+                onResponse.invoke(it)
+            }, {
+                onErrorResponse.invoke(it)
+                dismissLoading()
+            })
+        }
     }
 }

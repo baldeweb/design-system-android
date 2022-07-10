@@ -52,7 +52,6 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
         }
     }
 
-
     open fun showLoading() {
         runOnUiThread {
             binding.lltLoading.isClickable = false

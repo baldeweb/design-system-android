@@ -2,6 +2,7 @@ package com.wallace.design_system.data.mock
 
 import android.content.Context
 import android.content.res.AssetManager
+import com.wallace.design_system.BuildConfig.BASE_URL
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -49,7 +50,7 @@ class MockInterceptor(val context: Context) : Interceptor {
                                 val result = Response.Builder().code(200)
                                     .request(
                                         Request.Builder()
-                                            .url("")
+                                            .url(BASE_URL)
                                             .build()
                                     )
                                     .protocol(Protocol.HTTP_2)

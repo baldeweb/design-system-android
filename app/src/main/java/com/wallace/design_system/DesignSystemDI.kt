@@ -4,6 +4,8 @@ import com.wallace.design_system.data.service.ServiceManager
 import com.wallace.design_system.data.storage.BaseDAO
 import com.wallace.design_system.data.storage.DesignSystemDAO
 import com.wallace.design_system.data.storage.DesignSystemDAOImpl
+import com.wallace.design_system.domain.base.BaseRepository
+import com.wallace.design_system.domain.base.BaseUseCase
 import com.wallace.design_system.domain.repository.DesignSystemRepository
 import com.wallace.design_system.domain.repository.DesignSystemRepositoryImpl
 import com.wallace.design_system.domain.use_case.DesignSystemUseCase
@@ -18,16 +20,19 @@ import kotlin.reflect.KClass
 class DesignSystemDI {
     fun getModule(): Module {
         return module {
+            single { BaseDAO<KClass<*>>(get()) }
+            single { BaseRepository<KClass<*>>(get()) }
+            single { BaseUseCase() }
+
             single { ServiceManager<KClass<*>>(get()) }
 
-            single { BaseDAO<KClass<*>>(get()) }
             single<DesignSystemDAO> { DesignSystemDAOImpl(get()) }
 
             factory<DesignSystemRepository> { DesignSystemRepositoryImpl(get()) }
             factory<DesignSystemUseCase> { DesignSystemUseCaseImpl(get(), get()) }
 
             viewModel { BaseViewModel() }
-            viewModel { DesignSystemViewModel() }
+            viewModel { DesignSystemViewModel(get()) }
         }
     }
 }

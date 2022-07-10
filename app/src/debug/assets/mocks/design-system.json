@@ -1,248 +1,250 @@
-[
-  {
-    "category": "color",
-    "ds_tokens": [
-      {
-        "complement": "",
-        "name": "cornflower-blue",
-        "values": [
-          "#419BF9FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "green",
-        "values": [
-          "#C8CF2DFF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Peach Pressed",
-        "values": [
-          "#EE6723FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "peach",
-        "values": [
-          "#EE6723FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "orange",
-        "values": [
-          "#F69833FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "light-orange",
-        "values": [
-          "#FDBD39FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "yellow",
-        "values": [
-          "#FECF33FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "teflon",
-        "values": [
-          "#554D56FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "gandalf",
-        "values": [
-          "#979197FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "clooney",
-        "values": [
-          "#C1BEC1FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Karl Pressed",
-        "values": [
-          "#EDECEDFF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "karl",
-        "values": [
-          "#EDECEDFF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Whitey Pressed",
-        "values": [
-          "#F7F7F7FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "whitey",
-        "values": [
-          "#F7F7F7FF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "snowman",
-        "values": [
-          "#FBFBFBFF"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "white",
-        "values": [
-          "#FFFFFFFF"
-        ]
-      }
-    ]
-  },
-  {
-    "category": "font_family",
-    "ds_tokens": [
-      {
-        "complement": "",
-        "name": "Large Title",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Title 1",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Callout",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Subhead",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Title 3",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Footnote",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Caption 1",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Caption 2",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Title 2",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Headline",
-        "values": [
-          "Poppins"
-        ]
-      },
-      {
-        "complement": "",
-        "name": "Body",
-        "values": [
-          "Poppins"
-        ]
-      }
-    ]
-  },
-  {
-    "category": "spacing",
-    "ds_tokens": [
-      {
-        "complement": "",
-        "name": "spacing-base",
-        "values": [
-          4
-        ]
-      },
-      {
-        "complement": "",
-        "name": "spacing-s",
-        "values": [
-          12
-        ]
-      },
-      {
-        "complement": "",
-        "name": "spacing-m",
-        "values": [
-          16
-        ]
-      },
-      {
-        "complement": "",
-        "name": "spacing-l",
-        "values": [
-          20
-        ]
-      },
-      {
-        "complement": "",
-        "name": "spacing-xl",
-        "values": [
-          24
-        ]
-      },
-      {
-        "complement": "",
-        "name": "spacing-xxl",
-        "values": [
-          64
-        ]
-      }
-    ]
-  }
-]
+{
+  "componentItems": [
+    {
+      "category": "color",
+      "ds_tokens": [
+        {
+          "complement": "",
+          "name": "cornflower-blue",
+          "values": [
+            "#419BF9FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "green",
+          "values": [
+            "#C8CF2DFF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Peach Pressed",
+          "values": [
+            "#EE6723FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "peach",
+          "values": [
+            "#EE6723FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "orange",
+          "values": [
+            "#F69833FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "light-orange",
+          "values": [
+            "#FDBD39FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "yellow",
+          "values": [
+            "#FECF33FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "teflon",
+          "values": [
+            "#554D56FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "gandalf",
+          "values": [
+            "#979197FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "clooney",
+          "values": [
+            "#C1BEC1FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Karl Pressed",
+          "values": [
+            "#EDECEDFF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "karl",
+          "values": [
+            "#EDECEDFF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Whitey Pressed",
+          "values": [
+            "#F7F7F7FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "whitey",
+          "values": [
+            "#F7F7F7FF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "snowman",
+          "values": [
+            "#FBFBFBFF"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "white",
+          "values": [
+            "#FFFFFFFF"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "font_family",
+      "ds_tokens": [
+        {
+          "complement": "",
+          "name": "Large Title",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Title 1",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Callout",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Subhead",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Title 3",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Footnote",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Caption 1",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Caption 2",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Title 2",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Headline",
+          "values": [
+            "Poppins"
+          ]
+        },
+        {
+          "complement": "",
+          "name": "Body",
+          "values": [
+            "Poppins"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "spacing",
+      "ds_tokens": [
+        {
+          "complement": "",
+          "name": "spacing-base",
+          "values": [
+            4
+          ]
+        },
+        {
+          "complement": "",
+          "name": "spacing-s",
+          "values": [
+            12
+          ]
+        },
+        {
+          "complement": "",
+          "name": "spacing-m",
+          "values": [
+            16
+          ]
+        },
+        {
+          "complement": "",
+          "name": "spacing-l",
+          "values": [
+            20
+          ]
+        },
+        {
+          "complement": "",
+          "name": "spacing-xl",
+          "values": [
+            24
+          ]
+        },
+        {
+          "complement": "",
+          "name": "spacing-xxl",
+          "values": [
+            64
+          ]
+        }
+      ]
+    }
+  ]
+}

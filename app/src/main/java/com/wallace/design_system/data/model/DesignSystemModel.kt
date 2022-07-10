@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class DesignSystemModel {
     data class Response(
+        @SerializedName("componentItems")
         var items: ArrayList<DesignSystemModelItem>? = arrayListOf()
     )
 

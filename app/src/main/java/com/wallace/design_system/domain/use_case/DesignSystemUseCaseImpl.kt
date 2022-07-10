@@ -9,7 +9,5 @@ class DesignSystemUseCaseImpl(
     val dao: DesignSystemDAO,
     val repository: DesignSystemRepository
 ): DesignSystemUseCase {
-    override suspend fun getDesignSystem(): Response<DesignSystemModel.Response> {
-        return repository.getDesignSystem()
-    }
+    override suspend fun getDesignSystem() = repository.getDesignSystem()
 }

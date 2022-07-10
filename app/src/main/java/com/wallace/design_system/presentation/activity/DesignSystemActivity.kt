@@ -11,5 +11,10 @@ class DesignSystemActivity : BaseActivity<DesignSystemViewModel>() {
         super.onCreate(savedInstanceState)
         binding = ActivityDesignSystemBinding.inflate(layoutInflater)
         super.setContentView(binding.root)
+        initViewModels()
+    }
+
+    private fun initViewModels() {
+        viewModel.getDesignSystem()
     }
 }
