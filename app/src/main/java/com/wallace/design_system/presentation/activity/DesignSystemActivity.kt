@@ -10,6 +10,6 @@ class DesignSystemActivity : BaseActivity<DesignSystemViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDesignSystemBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        super.setContentView(binding.root)
     }
 }

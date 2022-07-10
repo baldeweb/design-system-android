@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.gson.GsonBuilder
 import com.wallace.design_system.BuildConfig
 import com.wallace.design_system.data.mock.MockInterceptor
+import com.wallace.design_system.data.utils.ServiceConstants.BASE_URL
 import com.wallace.design_system.data.utils.ServiceConstants.TIMEOUT
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -17,7 +18,7 @@ open class ServiceManager<T>(private val context: Context) : KoinComponent {
 
     protected inline fun <reified T> create(): T {
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BASE_URL)
             .addConverterFactory(
                 GsonConverterFactory.create(GsonBuilder().setLenient().create())
             )
