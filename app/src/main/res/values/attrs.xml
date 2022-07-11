@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DayTextView">
+        <attr name="appearance" format="enum">
+            <enum name="light" value="1" />
+            <enum name="dark" value="2" />
+            <enum name="blue" value="3" />
+            <enum name="error" value="4" />
+        </attr>
+        <attr name="size" format="enum">
+            <enum name="xsmall" value="1" />
+            <enum name="small" value="2" />
+            <enum name="medium" value="3" />
+            <enum name="large" value="4" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DayButton">
+        <attr name="type" format="enum">
+            <enum name="primary_button" value="1" />
+            <enum name="secondary_button" value="2" />
+            <enum name="tertiary_button" value="3" />
+            <enum name="ghost_button" value="4" />
+        </attr>
+        <attr name="icon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DayEditText">
+        <attr name="fieldType" format="enum">
+            <enum name="text" value="1" />
+            <enum name="number" value="2" />
+            <enum name="phone" value="3" />
+            <enum name="email" value="4" />
+            <enum name="cpf" value="5" />
+            <enum name="sms_code" value="6" />
+        </attr>
+        <attr name="fieldStyle" format="enum">
+            <enum name="light" value="1" />
+            <enum name="dark" value="2" />
+        </attr>
+        <attr name="title" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="fieldIcon" format="reference" />
+    </declare-styleable>
+</resources>
