@@ -3,7 +3,7 @@ package com.wallace.design_system
 import android.app.Application
 import android.content.Context
 import com.wallace.design_system.di.DesignSystemDI
-import com.wallace.design_system.di.RoomDI
+import com.wallace.design_system.di.StorageDI
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -19,7 +19,7 @@ class DesignSystemApplication: Application() {
 
         val moduleList = listOf(
             DesignSystemDI().getModule(),
-            RoomDI().getModule(),
+            StorageDI().getModule(),
         )
         startKoin {
             androidContext(this@DesignSystemApplication)
