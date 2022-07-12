@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface DesignSystemAPI {
     @LoadMock("design-system.json")
     @GET("Design/DesignSystem")
-    suspend fun getDesignSystem(): Response<ArrayList<DesignSystemModel.DesignSystemModelItem>>
+    suspend fun getDesignSystem(): Response<ArrayList<DesignSystemModel.Response>>
 }

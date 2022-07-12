@@ -1,13 +1,19 @@
 package com.wallace.design_system.data.model
 
-
 import com.google.gson.annotations.SerializedName
 
 class DesignSystemModel{
-//    data class Response(
-//        @SerializedName("category")
-//        var tokens: ArrayList<DesignSystemModelItem>? = arrayListOf()
-//    )
+    data class Response(
+        @SerializedName("version")
+        var version: Int? = null,
+        @SerializedName("data")
+        var tokens: ArrayList<Data>? = arrayListOf()
+    )
+
+    data class Data(
+        @SerializedName("category")
+        var tokens: ArrayList<DesignSystemModelItem>? = arrayListOf()
+    )
 
     data class DesignSystemModelItem(
         @SerializedName("category")
