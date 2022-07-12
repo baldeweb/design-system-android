@@ -5,21 +5,21 @@ import com.google.gson.annotations.SerializedName
 class DesignSystemModel{
     data class Response(
         @SerializedName("version")
-        var version: Int? = null,
+        var version: Long? = null,
         @SerializedName("data")
-        var tokens: ArrayList<Data>? = arrayListOf()
+        var listData: List<Data>? = arrayListOf()
     )
 
     data class Data(
         @SerializedName("category")
-        var tokens: ArrayList<DesignSystemModelItem>? = arrayListOf()
+        var tokens: List<DesignSystemModelItem>? = arrayListOf()
     )
 
     data class DesignSystemModelItem(
         @SerializedName("category")
         var category: String? = null,
         @SerializedName("ds_tokens")
-        var dsTokens: ArrayList<DsToken>? = arrayListOf()
+        var dsTokens: List<DsToken>? = arrayListOf()
     )
 
     data class DsToken(
@@ -28,7 +28,7 @@ class DesignSystemModel{
         @SerializedName("type")
         var type: String? = null,
         @SerializedName("values")
-        var values: ArrayList<Value>? = arrayListOf()
+        var values: List<Value>? = arrayListOf()
     )
 
     data class Value(
