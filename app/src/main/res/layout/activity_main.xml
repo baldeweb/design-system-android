@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:fitsSystemWindows="true"
     tools:context=".presentation.activity.BaseActivity">
 
@@ -11,6 +12,7 @@
         android:id="@+id/fml_base_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +23,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#B3000000"
-        android:translationZ="9998dp"
         android:elevation="10dp"
+        android:translationZ="9998dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
