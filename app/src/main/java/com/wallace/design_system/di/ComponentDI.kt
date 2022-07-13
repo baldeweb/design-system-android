@@ -7,6 +7,7 @@ import com.wallace.design_system.domain.repository.DesignSystemRepository
 import com.wallace.design_system.domain.repository.DesignSystemRepositoryImpl
 import com.wallace.design_system.domain.use_case.DesignSystemUseCase
 import com.wallace.design_system.domain.use_case.DesignSystemUseCaseImpl
+import com.wallace.design_system.presentation.component.DayButton
 import com.wallace.design_system.presentation.viewmodel.BaseViewModel
 import com.wallace.design_system.presentation.viewmodel.DesignSystemViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -14,19 +15,10 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import kotlin.reflect.KClass
 
-class DesignSystemDI {
+class ComponentDI {
     fun getModule(): Module {
         return module {
-            single { BaseRepository<KClass<*>>(get()) }
-            single { BaseUseCase() }
-
-            single { ServiceManager<KClass<*>>(get()) }
-
-            factory<DesignSystemRepository> { DesignSystemRepositoryImpl(get()) }
-            factory<DesignSystemUseCase> { DesignSystemUseCaseImpl(get(), get(), get()) }
-
-            viewModel { BaseViewModel() }
-            viewModel { DesignSystemViewModel(get()) }
+            factory { DayButton(get(), get(), get()) }
         }
     }
 }

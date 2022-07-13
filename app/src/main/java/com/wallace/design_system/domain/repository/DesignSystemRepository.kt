@@ -4,5 +4,5 @@ import com.wallace.design_system.data.model.DesignSystemModel
 import retrofit2.Response
 
 interface DesignSystemRepository {
-    suspend fun getDesignSystem(): Response<ArrayList<DesignSystemModel.Response>>
+    suspend fun getDesignSystem(): Response<DesignSystemModel.Response>
 }

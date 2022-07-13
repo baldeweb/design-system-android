@@ -1,25 +1,33 @@
 package com.wallace.design_system.domain.use_case
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.content.Context
 import com.wallace.design_system.data.model.DesignSystemModel
-import com.wallace.design_system.data.storage.DesignSystemDAO
+import com.wallace.design_system.data.storage.room.DesignSystemDAO
 import com.wallace.design_system.data.storage.entities.*
+import com.wallace.design_system.data.storage.singleton.DesignSystemSingleton
 import com.wallace.design_system.domain.repository.DesignSystemRepository
+import retrofit2.Response
 
 class DesignSystemUseCaseImpl(
+    val context: Context,
     val dao: DesignSystemDAO,
     val repository: DesignSystemRepository
 ): DesignSystemUseCase {
     override fun saveDesignSystem(model: DesignSystemModel.Response) {
         dao.insertDesignSystem(parseDesignSystemToEntity(model))
+        DesignSystemSingleton.getInstance(context).model = model
     }
 
     override fun getDesignSystemStorage(): DesignSystemModel.Response {
-        return parseDesignSystemToModel(dao.getDesignSystem().value ?: DesignSystemEntity())
+        //  parseDesignSystemToModel(dao.getDesignSystem().value ?: DesignSystemEntity())
+        return DesignSystemSingleton.getInstance(context).model ?: DesignSystemModel.Response()
     }
 
-    override suspend fun getDesignSystem() = repository.getDesignSystem()
+    override suspend fun getDesignSystem(): Response<DesignSystemModel.Response> {
+        val response = repository.getDesignSystem()
+        response.body()?.let { saveDesignSystem(it) }
+        return response
+    }
 
     override fun parseDesignSystemToEntity(model: DesignSystemModel.Response): DesignSystemEntity {
         var value: DesignSystemValueEntity

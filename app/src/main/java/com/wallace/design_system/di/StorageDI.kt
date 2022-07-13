@@ -2,8 +2,8 @@ package com.wallace.design_system.di
 
 import android.app.Application
 import androidx.room.Room
-import com.wallace.design_system.data.storage.BaseDatabase
-import com.wallace.design_system.data.storage.DesignSystemDAO
+import com.wallace.design_system.data.storage.room.BaseDatabase
+import com.wallace.design_system.data.storage.room.DesignSystemDAO
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.Module
 import org.koin.dsl.module

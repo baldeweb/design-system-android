@@ -8,7 +8,7 @@ import retrofit2.Response
 interface DesignSystemUseCase {
     fun saveDesignSystem(model: DesignSystemModel.Response)
     fun getDesignSystemStorage(): DesignSystemModel.Response
-    suspend fun getDesignSystem(): Response<ArrayList<DesignSystemModel.Response>>
+    suspend fun getDesignSystem(): Response<DesignSystemModel.Response>
     fun parseDesignSystemToEntity(model: DesignSystemModel.Response): DesignSystemEntity
     fun parseDesignSystemToModel(entity: DesignSystemEntity): DesignSystemModel.Response
 }

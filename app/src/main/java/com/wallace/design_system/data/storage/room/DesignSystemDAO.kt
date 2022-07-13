@@ -1,4 +1,4 @@
-package com.wallace.design_system.data.storage
+package com.wallace.design_system.data.storage.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

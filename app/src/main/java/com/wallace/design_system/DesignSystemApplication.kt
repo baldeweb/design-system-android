@@ -2,6 +2,7 @@ package com.wallace.design_system
 
 import android.app.Application
 import android.content.Context
+import com.wallace.design_system.di.ComponentDI
 import com.wallace.design_system.di.DesignSystemDI
 import com.wallace.design_system.di.StorageDI
 import org.koin.android.ext.koin.androidContext
@@ -18,6 +19,7 @@ class DesignSystemApplication: Application() {
         appContext = applicationContext
 
         val moduleList = listOf(
+            ComponentDI().getModule(),
             DesignSystemDI().getModule(),
             StorageDI().getModule(),
         )
