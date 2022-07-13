@@ -20,4 +20,10 @@ import com.wallace.design_system.data.utils.Converters
 @TypeConverters(Converters::class)
 abstract class BaseDatabase: RoomDatabase() {
     abstract fun designSystemDAO(): DesignSystemDAO
+    abstract fun fontFamilyDAO(): FontFamilyDAO
+    abstract fun fontWeightDAO(): FontWeightDAO
+    abstract fun gradientColorDAO(): GradientColorDAO
+    abstract fun colorDAO(): ColorDAO
+    abstract fun fontSizeDAO(): FontSizeDAO
+    abstract fun shadowDAO(): ShadowDAO
 }

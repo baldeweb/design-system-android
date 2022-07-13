@@ -53,6 +53,7 @@ class DesignSystemUseCaseImpl(
                 item = DesignSystemModelItemEntity().apply {
                     this.id = null
                     this.category = modelItem.category
+                    //  TODO: criar metodos para salvar por cada tipo de categoria
                     this.dsTokens = listDsTokens
                 }
                 listItems.add(item)

@@ -8,6 +8,7 @@ import com.wallace.design_system.data.storage.entities.DesignSystemModelItemEnti
 
 @Dao
 interface DesignSystemDAO {
+    //  TODO: criar um DAO para cada item salvo
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertDesignSystem(user: DesignSystemEntity)
 

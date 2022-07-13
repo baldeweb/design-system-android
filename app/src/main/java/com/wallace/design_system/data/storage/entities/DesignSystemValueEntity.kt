@@ -1,11 +1,10 @@
 package com.wallace.design_system.data.storage.entities
 
-import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.wallace.design_system.data.model.DesignSystemModel
+import com.wallace.design_system.data.storage.room.BaseDAO.Companion.DESIGN_SYSTEM_VALUE_TABLE
 
-@Entity(tableName = "design_system_value_table")
+@Entity(tableName = DESIGN_SYSTEM_VALUE_TABLE)
 data class DesignSystemValueEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Long? = null,

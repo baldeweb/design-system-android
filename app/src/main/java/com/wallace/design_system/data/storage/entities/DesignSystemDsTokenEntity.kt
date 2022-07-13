@@ -4,8 +4,9 @@ import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.wallace.design_system.data.model.DesignSystemModel
+import com.wallace.design_system.data.storage.room.BaseDAO.Companion.DESIGN_SYSTEM_DS_TOKEN_TABLE
 
-@Entity(tableName = "design_system_ds_token_table")
+@Entity(tableName = DESIGN_SYSTEM_DS_TOKEN_TABLE)
 data class DesignSystemDsTokenEntity(
     @PrimaryKey(autoGenerate = true)
     @NonNull
