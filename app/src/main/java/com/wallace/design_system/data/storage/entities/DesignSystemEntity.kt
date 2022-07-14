@@ -6,7 +6,8 @@ import com.wallace.design_system.data.storage.room.BaseDAO.Companion.DESIGN_SYST
 
 @Entity(tableName = DESIGN_SYSTEM_TABLE)
 data class DesignSystemEntity(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
+    var id: Long? = null,
     var version: Long? = null,
-    var data: List<DesignSystemDataEntity>? = listOf()
+    var data: List<DesignSystemDataEntity>? = null
 )

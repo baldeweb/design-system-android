@@ -10,7 +10,6 @@ import com.wallace.design_system.data.utils.Converters
     entities = [
         DesignSystemEntity::class,
         DesignSystemDataEntity::class,
-        DesignSystemModelItemEntity::class,
         DesignSystemDsTokenEntity::class,
         DesignSystemValueEntity::class,
     ],

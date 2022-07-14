@@ -8,9 +8,9 @@ import com.wallace.design_system.di.StorageDI
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class DesignSystemApplication: Application() {
+class DesignSystemApplication : Application() {
 
-    companion object{
+    companion object {
         lateinit var appContext: Context
     }
 

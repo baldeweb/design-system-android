@@ -12,11 +12,6 @@ class DesignSystemModel{
 
     data class Data(
         @SerializedName("category")
-        var tokens: List<DesignSystemModelItem>? = arrayListOf()
-    )
-
-    data class DesignSystemModelItem(
-        @SerializedName("category")
         var category: String? = null,
         @SerializedName("ds_tokens")
         var dsTokens: List<DsToken>? = arrayListOf()

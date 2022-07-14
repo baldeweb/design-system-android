@@ -47,14 +47,14 @@ open class BaseViewModel: ViewModel() {
         onErrorResponse: (String) -> Unit
     ) {
         showLoading()
-        CoroutineScope(Dispatchers.IO).launch {
-            ServiceManager<T>(_currentContext.value ?: return@launch).serviceCaller(api, {
+//        CoroutineScope(Dispatchers.IO).launch {
+            ServiceManager<T>(_currentContext.value ?: return).serviceCaller(api, {
                 dismissLoading()
                 onResponse.invoke(it)
             }, {
                 onErrorResponse.invoke(it)
                 dismissLoading()
             })
-        }
+//        }
     }
 }

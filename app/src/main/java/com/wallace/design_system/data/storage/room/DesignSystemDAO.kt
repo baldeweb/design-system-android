@@ -4,25 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.wallace.design_system.data.storage.entities.DesignSystemDataEntity
 import com.wallace.design_system.data.storage.entities.DesignSystemEntity
-import com.wallace.design_system.data.storage.entities.DesignSystemModelItemEntity
 
 @Dao
-interface DesignSystemDAO {
-    //  TODO: criar um DAO para cada item salvo
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertDesignSystem(user: DesignSystemEntity)
+interface DesignSystemDAO: BaseDAO<DesignSystemEntity> {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertDesignSystem(data: DesignSystemEntity)
 
     @Transaction
-    @Query("SELECT * FROM design_system_table")
-    fun getDesignSystem() : LiveData<DesignSystemEntity>
-
-    @Transaction
-    @Query("SELECT * FROM design_system_data_table")
-    fun getDesignSystemData() : LiveData<List<DesignSystemDataEntity>>
+    @Query("SELECT * FROM design_system_data_table WHERE category LIKE :categoryName")
+    fun getDesignSystem(categoryName: String) : LiveData<List<DesignSystemDataEntity>>
 
     @Update
-    fun updateUserDetails(user: DesignSystemModelItemEntity)
+    fun updateDesignSystem(data: DesignSystemEntity)
 
     @Delete
-    fun delete(user: DesignSystemModelItemEntity)
+    override fun delete(data: DesignSystemEntity)
 }

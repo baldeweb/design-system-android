@@ -1,26 +1,23 @@
 package com.wallace.design_system.data.storage.room
 
 import androidx.room.*
+import com.wallace.design_system.data.storage.entities.DesignSystemDataEntity
 import com.wallace.design_system.data.storage.entities.DesignSystemDsTokenEntity
-import com.wallace.design_system.data.storage.room.BaseDAO.Companion.DESIGN_SYSTEM_MODEL_ITEM_TABLE
+import com.wallace.design_system.data.storage.room.BaseDAO.Companion.DESIGN_SYSTEM_DATA_TABLE
 
 @Dao
-interface FontSizeDAO: BaseDAO<DesignSystemDsTokenEntity> {
+interface FontSizeDAO: BaseDAO<DesignSystemDataEntity> {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    override fun insert(data: DesignSystemDsTokenEntity)
-
-    @Transaction
-    @Query("SELECT * FROM $DESIGN_SYSTEM_MODEL_ITEM_TABLE WHERE category = 'font-size'")
-    override fun getDataList(): List<DesignSystemDsTokenEntity>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    override fun insert(data: DesignSystemDataEntity)
 
     @Transaction
-    @Query("SELECT * FROM $DESIGN_SYSTEM_MODEL_ITEM_TABLE WHERE category = 'font-size'")
-    override fun getData(): DesignSystemDsTokenEntity
+    @Query("SELECT * FROM $DESIGN_SYSTEM_DATA_TABLE WHERE category LIKE 'font-size'")
+    override fun getData(): DesignSystemDataEntity
 
     @Update
-    override fun updateData(newData: DesignSystemDsTokenEntity)
+    override fun updateData(newData: DesignSystemDataEntity)
 
     @Delete
-    override fun delete(data: DesignSystemDsTokenEntity)
+    override fun delete(data: DesignSystemDataEntity)
 }
