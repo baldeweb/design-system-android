@@ -8,14 +8,22 @@ class DesignSystemModel{
         var version: Long? = null,
         @SerializedName("data")
         var listData: List<Data>? = arrayListOf()
-    )
+    ) {
+        override fun toString(): String {
+            return "Response(version=$version, listData=$listData)"
+        }
+    }
 
     data class Data(
         @SerializedName("category")
         var category: String? = null,
         @SerializedName("ds_tokens")
         var dsTokens: List<DsToken>? = arrayListOf()
-    )
+    ) {
+        override fun toString(): String {
+            return "Data(category=$category, dsTokens=$dsTokens)"
+        }
+    }
 
     data class DsToken(
         @SerializedName("name")
@@ -24,7 +32,9 @@ class DesignSystemModel{
         var type: String? = null,
         @SerializedName("values")
         var values: List<Value>? = arrayListOf()
-    )
+    ) {
+
+    }
 
     data class Value(
         @SerializedName("alpha")

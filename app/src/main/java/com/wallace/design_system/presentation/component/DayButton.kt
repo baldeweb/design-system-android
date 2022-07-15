@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.res.ResourcesCompat
 import com.wallace.design_system.R
-import com.wallace.design_system.data.storage.room.DesignSystemDAO
+import com.wallace.design_system.data.storage.DSFontFamilyDAO
 import com.wallace.design_system.data.utils.DayButtonConstants.GHOST_BUTTON
 import com.wallace.design_system.data.utils.DayButtonConstants.PRIMARY_BUTTON
 import com.wallace.design_system.data.utils.DayButtonConstants.SECONDARY_BUTTON
@@ -14,7 +14,7 @@ import com.wallace.design_system.data.utils.DayButtonConstants.TERTIARY_BUTTON
 
 @SuppressLint("ViewConstructor")
 open class DayButton(
-    dao: DesignSystemDAO,
+    dao: DSFontFamilyDAO,
     context: Context,
     attrs: AttributeSet?
 ) : AppCompatButton(context, attrs) {

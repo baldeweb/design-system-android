@@ -23,7 +23,24 @@ class DesignSystemDI {
             single { ServiceManager<KClass<*>>(get()) }
 
             factory<DesignSystemRepository> { DesignSystemRepositoryImpl(get()) }
-            factory<DesignSystemUseCase> { DesignSystemUseCaseImpl(get(), get(), get()) }
+            factory<DesignSystemUseCase> {
+                DesignSystemUseCaseImpl(
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get(),
+                    get()
+                )
+            }
 
             viewModel { BaseViewModel() }
             viewModel { DesignSystemViewModel(get()) }

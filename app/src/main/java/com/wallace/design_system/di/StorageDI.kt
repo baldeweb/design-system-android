@@ -1,41 +1,27 @@
 package com.wallace.design_system.di
 
-import android.app.Application
-import androidx.room.Room
-import com.wallace.design_system.data.storage.room.*
-import org.koin.android.ext.koin.androidApplication
+import androidx.datastore.preferences.core.stringPreferencesKey
+import com.wallace.design_system.data.storage.*
 import org.koin.core.module.Module
 import org.koin.dsl.module
+import kotlin.reflect.KClass
 
 class StorageDI {
     fun getModule(): Module {
         return module {
-            fun provideDataBase(application: Application): BaseDatabase {
-                return Room.databaseBuilder(
-                    application,
-                    BaseDatabase::class.java,
-                    "database-designsystem"
-                )
-                    .fallbackToDestructiveMigration()
-                    .build()
-            }
-
-            fun provideDesignSystemDao(dataBase: BaseDatabase): DesignSystemDAO = dataBase.designSystemDAO()
-            fun provideFontFamilyDao(dataBase: BaseDatabase): FontFamilyDAO = dataBase.fontFamilyDAO()
-            fun provideFontWeightDao(dataBase: BaseDatabase): FontWeightDAO = dataBase.fontWeightDAO()
-            fun provideGradientColorDao(dataBase: BaseDatabase): GradientColorDAO = dataBase.gradientColorDAO()
-            fun provideColorDao(dataBase: BaseDatabase): ColorDAO = dataBase.colorDAO()
-            fun provideFontSizeDao(dataBase: BaseDatabase): FontSizeDAO = dataBase.fontSizeDAO()
-            fun provideShadowDao(dataBase: BaseDatabase): ShadowDAO = dataBase.shadowDAO()
-
-            single { provideDataBase(androidApplication()) }
-            single { provideDesignSystemDao(get()) }
-            single { provideFontFamilyDao(get()) }
-            single { provideFontWeightDao(get()) }
-            single { provideGradientColorDao(get()) }
-            single { provideColorDao(get()) }
-            single { provideFontSizeDao(get()) }
-            single { provideShadowDao(get()) }
+            single { DataStoreManager<KClass<*>>(get(), get()) }
+            single { DSFontFamilyDAO(get(), stringPreferencesKey("ds_font_family_preferences")) }
+            single { DSFontWeightDAO(get(), stringPreferencesKey("ds_font_weight_preferences")) }
+            single { DSGradientColorDAO(get(), stringPreferencesKey("ds_gradient_color_preferences")) }
+            single { DSColorDAO(get(), stringPreferencesKey("ds_color_preferences")) }
+            single { DSFontSizeDAO(get(), stringPreferencesKey("ds_font_size_preferences")) }
+            single { DSLineHeightDAO(get(), stringPreferencesKey("ds_line_height_preferences")) }
+            single { DSBorderRadiusDAO(get(), stringPreferencesKey("ds_border_radius_preferences")) }
+            single { DSBorderWidthDAO(get(), stringPreferencesKey("ds_border_width_preferences")) }
+            single { DSOpacityLevelsDAO(get(), stringPreferencesKey("ds_opacity_levels_preferences")) }
+            single { DSShadowDAO(get(), stringPreferencesKey("ds_shadow_preferences")) }
+            single { DSSpacingDAO(get(), stringPreferencesKey("ds_spacing_preferences")) }
+            single { DSSpacingInsetDAO(get(), stringPreferencesKey("ds_spacing_inset_preferences")) }
         }
     }
 }
