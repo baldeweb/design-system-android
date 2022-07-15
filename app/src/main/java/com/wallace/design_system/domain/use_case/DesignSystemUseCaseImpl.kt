@@ -18,17 +18,13 @@ class DesignSystemUseCaseImpl(
 ) : DesignSystemUseCase {
     override suspend fun saveDesignSystem(model: DesignSystemModel.Response) {
         val parsed = parseDesignSystemToEntity(model)
-        dao.insertDesignSystem(parsed)
+        dao.insert(parsed)
         DesignSystemSingleton.getInstance(context).model = model
     }
 
     override suspend fun getDesignSystemStorage(): DesignSystemModel.Response {
         return parseDesignSystemToModel(
-            dao.getDesignSystem().value ?: DesignSystemEntity(
-                -1,
-                -1,
-                listOf()
-            )
+            dao.getData()
         )
 //        return DesignSystemSingleton.getInstance(context).model ?: DesignSystemModel.Response()
     }
