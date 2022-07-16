@@ -31,8 +31,8 @@ class DesignSystemViewModel(
     }
 
     private suspend fun getColor() {
-        val fontFamily = useCase.getDesignSystemByCategory(DS_COLOR)
-        logD("Color: $fontFamily")
+        val color = useCase.getDesignSystemByCategory(DS_COLOR)
+        logD("Color: $color")
     }
 
     private suspend fun getShadow() {

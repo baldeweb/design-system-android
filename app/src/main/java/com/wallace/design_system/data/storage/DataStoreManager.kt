@@ -1,6 +1,7 @@
 package com.wallace.design_system.data.storage
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -11,24 +12,22 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
+//private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "design_system_preferences")
 open class DataStoreManager<T>(
     private val context: Context,
+    private val dataStore: DataStore<Preferences>,
     prefsKey: Preferences.Key<T>
 ) {
-    companion object {
-        private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "design_system_preferences")
-    }
-
     private var _prefsKey: Preferences.Key<T> = prefsKey
 
     open suspend fun insertData(value: T) {
-        context.dataStore.edit { prefs ->
+        dataStore.edit { prefs ->
             prefs[_prefsKey] = value
         }
     }
 
     open fun getData(): Flow<T?> {
-        return context.dataStore.data.catch { exception ->
+        return dataStore.data.catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
             } else {
@@ -40,14 +39,14 @@ open class DataStoreManager<T>(
     }
 
     open suspend fun updateData(value: T) {
-        context.dataStore.edit { prefs ->
+        dataStore.edit { prefs ->
             prefs.clear()
             prefs[_prefsKey] = value
         }
     }
 
     open suspend fun removeData() {
-        context.dataStore.edit { prefs ->
+        dataStore.edit { prefs ->
             prefs.remove(_prefsKey)
             prefs.clear()
         }

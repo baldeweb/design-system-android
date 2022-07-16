@@ -1,6 +1,14 @@
 package com.wallace.design_system.data.utils
 
+import com.google.gson.Gson
+import com.wallace.design_system.data.model.DesignSystemModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import java.util.regex.Pattern
+
+suspend inline fun<reified T> Flow<String?>.convertToObject(): T {
+    return Gson().fromJson(this.first(), T::class.java)
+}
 
 fun String.cleanMask() = this.filter { it.isDigit() }
 

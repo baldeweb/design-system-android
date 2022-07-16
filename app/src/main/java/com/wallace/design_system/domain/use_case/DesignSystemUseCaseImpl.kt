@@ -16,6 +16,7 @@ import com.wallace.design_system.data.utils.DesignSystemEnum.DS_OPACITY_LEVELS
 import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SHADOW
 import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SPACING
 import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SPACING_INSETS
+import com.wallace.design_system.data.utils.convertToObject
 import com.wallace.design_system.domain.repository.DesignSystemRepository
 import retrofit2.Response
 
@@ -28,11 +29,11 @@ class DesignSystemUseCaseImpl(
     val fontSizeDAO: DSFontSizeDAO,
     val lineHeightDAO: DSLineHeightDAO,
     val borderRadiusDAO: DSBorderRadiusDAO,
-    val borderWidth: DSBorderWidthDAO,
-    val opacityLevels: DSOpacityLevelsDAO,
+    val borderWidthDAO: DSBorderWidthDAO,
+    val opacityLevelsDAO: DSOpacityLevelsDAO,
     val shadowDAO: DSShadowDAO,
     val spacingDAO: DSSpacingDAO,
-    val spacingInset: DSSpacingInsetDAO,
+    val spacingInsetDAO: DSSpacingInsetDAO,
     val repository: DesignSystemRepository
 ) : DesignSystemUseCase {
     override suspend fun getDesignSystem(): Response<DesignSystemModel.Response> {
@@ -47,22 +48,55 @@ class DesignSystemUseCaseImpl(
         model.listData?.find { it.category == DS_FONT_FAMILY }?.let {
             fontFamilyDAO.insertData(Gson().toJson(it))
         }
+        model.listData?.find { it.category == DS_FONT_WEIGHT }?.let {
+            fontWeightDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_GRADIENT_COLOR }?.let {
+            gradientColorDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_COLOR }?.let {
+            colorDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_FONT_SIZE }?.let {
+            fontSizeDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_LINE_HEIGHT }?.let {
+            lineHeightDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_BORDER_RADIUS }?.let {
+            borderRadiusDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_BORDER_WIDTH }?.let {
+            borderWidthDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_OPACITY_LEVELS }?.let {
+            opacityLevelsDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_SHADOW }?.let {
+            shadowDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_SPACING }?.let {
+            spacingDAO.insertData(Gson().toJson(it))
+        }
+        model.listData?.find { it.category == DS_SPACING_INSETS }?.let {
+            spacingInsetDAO.insertData(Gson().toJson(it))
+        }
     }
 
     override suspend fun getDesignSystemByCategory(category: String): DesignSystemModel.Data? {
         return when(category) {
-            DS_FONT_FAMILY -> fontFamilyDAO.getDataConverted()
-            DS_FONT_WEIGHT -> fontWeightDAO.getDataConverted()
-            DS_GRADIENT_COLOR -> gradientColorDAO.getDataConverted()
-            DS_COLOR -> colorDAO.getDataConverted()
-            DS_FONT_SIZE -> fontSizeDAO.getDataConverted()
-            DS_LINE_HEIGHT -> lineHeightDAO.getDataConverted()
-            DS_BORDER_RADIUS -> borderRadiusDAO.getDataConverted()
-            DS_BORDER_WIDTH -> borderWidth.getDataConverted()
-            DS_OPACITY_LEVELS -> opacityLevels.getDataConverted()
-            DS_SHADOW -> shadowDAO.getDataConverted()
-            DS_SPACING -> spacingDAO.getDataConverted()
-            DS_SPACING_INSETS -> spacingInset.getDataConverted()
+            DS_FONT_FAMILY -> fontFamilyDAO.getData().convertToObject() // fontFamilyDAO.getDataConverted()
+            DS_FONT_WEIGHT -> fontWeightDAO.getData().convertToObject()
+            DS_GRADIENT_COLOR -> gradientColorDAO.getData().convertToObject()
+            DS_COLOR -> colorDAO.getData().convertToObject()
+            DS_FONT_SIZE -> fontSizeDAO.getData().convertToObject()
+            DS_LINE_HEIGHT -> lineHeightDAO.getData().convertToObject()
+            DS_BORDER_RADIUS -> borderRadiusDAO.getData().convertToObject()
+            DS_BORDER_WIDTH -> borderWidthDAO.getData().convertToObject()
+            DS_OPACITY_LEVELS -> opacityLevelsDAO.getData().convertToObject()
+            DS_SHADOW -> shadowDAO.getData().convertToObject()
+            DS_SPACING -> spacingDAO.getData().convertToObject()
+            DS_SPACING_INSETS -> spacingInsetDAO.getData().convertToObject()
             else -> null
         }
     }
