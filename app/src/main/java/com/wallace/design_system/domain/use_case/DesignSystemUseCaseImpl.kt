@@ -85,7 +85,7 @@ class DesignSystemUseCaseImpl(
 
     override suspend fun getDesignSystemByCategory(category: String): DesignSystemModel.Data? {
         return when(category) {
-            DS_FONT_FAMILY -> fontFamilyDAO.getData().convertToObject() // fontFamilyDAO.getDataConverted()
+            DS_FONT_FAMILY -> fontFamilyDAO.getData().convertToObject()
             DS_FONT_WEIGHT -> fontWeightDAO.getData().convertToObject()
             DS_GRADIENT_COLOR -> gradientColorDAO.getData().convertToObject()
             DS_COLOR -> colorDAO.getData().convertToObject()

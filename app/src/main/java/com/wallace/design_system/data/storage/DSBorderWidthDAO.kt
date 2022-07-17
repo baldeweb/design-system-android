@@ -12,8 +12,4 @@ import kotlinx.coroutines.launch
 
 class DSBorderWidthDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
-) : DataStoreManager<String>(context, dataStore, prefsKey) {
-    suspend fun getDataConverted(): DesignSystemModel.Data? {
-        return Gson().fromJson(getData().first(), DesignSystemModel.Data::class.java)
-    }
-}
+) : DataStoreManager<String>(context, dataStore, prefsKey)

@@ -26,7 +26,9 @@ class StorageDI {
                         produceNewData = { emptyPreferences() }
                     ),
                     scope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
-                    produceFile = { appContext.preferencesDataStoreFile("design_system_preferences_db") }
+                    produceFile = {
+                        appContext.preferencesDataStoreFile("design_system_preferences_db")
+                    }
                 )
             }
             single { providePreferencesDataStore(androidApplication()) }
