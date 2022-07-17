@@ -13,5 +13,5 @@ interface DesignSystemUseCase {
 //    suspend fun saveGradientColor(model: DesignSystemModel.Data)
 //    suspend fun getGradientColor(): DesignSystemModel.Data
     suspend fun getDesignSystem(): Response<DesignSystemModel.Response>
-    suspend fun getDesignSystemByCategory(category: String): DesignSystemModel.Data?
+    suspend fun getDesignSystemTokens(category: String): List<DesignSystemModel.DsToken>
 }

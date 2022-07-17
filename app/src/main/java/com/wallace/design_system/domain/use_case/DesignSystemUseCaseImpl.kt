@@ -2,20 +2,20 @@ package com.wallace.design_system.domain.use_case
 
 import android.content.Context
 import com.google.gson.Gson
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_FONT_FAMILY
 import com.wallace.design_system.data.model.DesignSystemModel
 import com.wallace.design_system.data.storage.*
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_BORDER_RADIUS
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_BORDER_WIDTH
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_COLOR
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_FONT_SIZE
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_FONT_WEIGHT
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_GRADIENT_COLOR
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_LINE_HEIGHT
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_OPACITY_LEVELS
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SHADOW
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SPACING
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SPACING_INSETS
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_WIDTH
+import com.wallace.design_system.data.utils.DSColorConstants.DS_COLOR
+import com.wallace.design_system.data.utils.DSColorConstants.DS_GRADIENT_COLOR
+import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_FAMILY
+import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_SIZE
+import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_WEIGHT
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVELS
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW
+import com.wallace.design_system.data.utils.DSSpacingConstants.DS_SPACING
+import com.wallace.design_system.data.utils.DSSpacingConstants.DS_SPACING_INSETS
 import com.wallace.design_system.data.utils.convertToObject
 import com.wallace.design_system.domain.repository.DesignSystemRepository
 import retrofit2.Response
@@ -46,44 +46,44 @@ class DesignSystemUseCaseImpl(
 
     override suspend fun saveDesignSystemData(model: DesignSystemModel.Response) {
         model.listData?.find { it.category == DS_FONT_FAMILY }?.let {
-            fontFamilyDAO.insertData(Gson().toJson(it))
+            fontFamilyDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_FONT_WEIGHT }?.let {
-            fontWeightDAO.insertData(Gson().toJson(it))
+            fontWeightDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_GRADIENT_COLOR }?.let {
-            gradientColorDAO.insertData(Gson().toJson(it))
+            gradientColorDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_COLOR }?.let {
-            colorDAO.insertData(Gson().toJson(it))
+            colorDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_FONT_SIZE }?.let {
-            fontSizeDAO.insertData(Gson().toJson(it))
+            fontSizeDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_LINE_HEIGHT }?.let {
-            lineHeightDAO.insertData(Gson().toJson(it))
+            lineHeightDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_BORDER_RADIUS }?.let {
-            borderRadiusDAO.insertData(Gson().toJson(it))
+            borderRadiusDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_BORDER_WIDTH }?.let {
-            borderWidthDAO.insertData(Gson().toJson(it))
+            borderWidthDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_OPACITY_LEVELS }?.let {
-            opacityLevelsDAO.insertData(Gson().toJson(it))
+            opacityLevelsDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_SHADOW }?.let {
-            shadowDAO.insertData(Gson().toJson(it))
+            shadowDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_SPACING }?.let {
-            spacingDAO.insertData(Gson().toJson(it))
+            spacingDAO.insertData(Gson().toJson(it.dsTokens))
         }
         model.listData?.find { it.category == DS_SPACING_INSETS }?.let {
-            spacingInsetDAO.insertData(Gson().toJson(it))
+            spacingInsetDAO.insertData(Gson().toJson(it.dsTokens))
         }
     }
 
-    override suspend fun getDesignSystemByCategory(category: String): DesignSystemModel.Data? {
+    override suspend fun getDesignSystemTokens(category: String): List<DesignSystemModel.DsToken> {
         return when(category) {
             DS_FONT_FAMILY -> fontFamilyDAO.getData().convertToObject()
             DS_FONT_WEIGHT -> fontWeightDAO.getData().convertToObject()
@@ -97,7 +97,7 @@ class DesignSystemUseCaseImpl(
             DS_SHADOW -> shadowDAO.getData().convertToObject()
             DS_SPACING -> spacingDAO.getData().convertToObject()
             DS_SPACING_INSETS -> spacingInsetDAO.getData().convertToObject()
-            else -> null
+            else -> listOf()
         }
     }
 }

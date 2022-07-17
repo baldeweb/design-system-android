@@ -1,9 +1,9 @@
 package com.wallace.design_system.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_COLOR
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_FONT_FAMILY
-import com.wallace.design_system.data.utils.DesignSystemEnum.DS_SHADOW
+import com.wallace.design_system.data.utils.DSColorConstants.DS_COLOR
+import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_FAMILY
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW
 import com.wallace.design_system.data.utils.LogUtils.logD
 import com.wallace.design_system.domain.use_case.DesignSystemUseCase
 import kotlinx.coroutines.launch
@@ -26,17 +26,17 @@ class DesignSystemViewModel(
     }
 
     private suspend fun getFontFamily() {
-        val fontFamily = useCase.getDesignSystemByCategory(DS_FONT_FAMILY)
+        val fontFamily = useCase.getDesignSystemTokens(DS_FONT_FAMILY)
         logD("Font-Family: $fontFamily")
     }
 
     private suspend fun getColor() {
-        val color = useCase.getDesignSystemByCategory(DS_COLOR)
+        val color = useCase.getDesignSystemTokens(DS_COLOR)
         logD("Color: $color")
     }
 
     private suspend fun getShadow() {
-        val shadow = useCase.getDesignSystemByCategory(DS_SHADOW)
+        val shadow = useCase.getDesignSystemTokens(DS_SHADOW)
         logD("Shadow: $shadow")
     }
 }
