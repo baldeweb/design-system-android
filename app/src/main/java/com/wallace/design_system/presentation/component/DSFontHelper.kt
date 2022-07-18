@@ -66,16 +66,23 @@ interface DSFontHelper {
         return when(fontFamilyBaseReference) {
             DS_FONT_MULISH -> {
                 when {
-                    fontWeightBase == "black" || fontWeightHighlight == "900" -> R.font.mulish_black
-                    fontWeightBase == "bold" || fontWeightHighlight == "700" -> R.font.mulish_bold
+                    fontWeightBase == "regular" || fontWeightHighlight == "300" -> R.font.mulish_regular
+                    fontWeightBase == "light" || fontWeightHighlight == "100" -> R.font.mulish_light
                     fontWeightBase == "medium" || fontWeightHighlight == "500" -> R.font.mulish_medium
-                    fontWeightBase == "regular" || fontWeightHighlight == "300" -> R.font.mulish_regular
-                    fontWeightBase == "regular" || fontWeightHighlight == "300" -> R.font.mulish_regular
-                    else -> 0
+                    fontWeightBase == "bold" || fontWeightHighlight == "700" -> R.font.mulish_bold
+                    fontWeightBase == "black" || fontWeightHighlight == "900" -> R.font.mulish_black
+                    else -> R.font.mulish_regular
                 }
             }
             DS_FONT_MUSEO -> {
-                0
+                when {
+                    fontWeightBase == "regular" || fontWeightHighlight == "300" -> R.font.museo_regular
+                    fontWeightBase == "light" || fontWeightHighlight == "100" -> R.font.museo_light
+                    fontWeightBase == "medium" || fontWeightHighlight == "500" -> R.font.museo_medium
+                    fontWeightBase == "bold" || fontWeightHighlight == "700" -> R.font.museo_bold
+                    fontWeightBase == "black" || fontWeightHighlight == "900" -> R.font.museo_black
+                    else -> R.font.museo_regular
+                }
             }
             else -> R.font.mulish_regular
         }
