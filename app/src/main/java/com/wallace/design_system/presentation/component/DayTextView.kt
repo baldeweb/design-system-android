@@ -18,6 +18,8 @@ import com.wallace.design_system.data.utils.DayTextViewConstants.SMALL
 import com.wallace.design_system.data.utils.DayTextViewConstants.XSMALL
 import com.wallace.design_system.data.utils.fromHTMLtoText
 import com.wallace.design_system.data.utils.getDensityDpi
+import com.wallace.design_system.presentation.component.helper.DSColorHelper
+import com.wallace.design_system.presentation.component.helper.DSFontHelper
 
 @SuppressLint("ViewConstructor")
 class DayTextView(

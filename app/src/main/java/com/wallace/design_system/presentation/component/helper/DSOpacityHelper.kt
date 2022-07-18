@@ -1,4 +1,4 @@
-package com.wallace.design_system.presentation.component
+package com.wallace.design_system.presentation.component.helper
 
 import com.wallace.design_system.data.storage.DSOpacityLevelsDAO
 import com.wallace.design_system.data.utils.DSOpacityLevelsConstants.DS_OPACITY_LEVEL_INTENSE

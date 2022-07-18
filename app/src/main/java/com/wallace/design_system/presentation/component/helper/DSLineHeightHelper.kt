@@ -1,4 +1,4 @@
-package com.wallace.design_system.presentation.component
+package com.wallace.design_system.presentation.component.helper
 
 import com.wallace.design_system.data.storage.DSLineHeightDAO
 import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_DEFAULT
