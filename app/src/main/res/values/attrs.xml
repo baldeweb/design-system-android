@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="DayTextView">
-        <attr name="appearance" format="enum">
-            <enum name="light" value="1" />
-            <enum name="dark" value="2" />
-            <enum name="blue" value="3" />
-            <enum name="error" value="4" />
+        <attr name="family" format="enum">
+            <enum name="font_family_base" value="1" />
+            <enum name="font_family_highlight" value="2" />
+        </attr>
+        <attr name="weight" format="enum">
+            <enum name="font_weight_light" value="1" />
+            <enum name="font_weight_regular" value="2" />
+            <enum name="font_weight_medium" value="3" />
+            <enum name="font_weight_bold" value="4" />
+            <enum name="font_weight_black" value="5" />
         </attr>
         <attr name="size" format="enum">
-            <enum name="xsmall" value="1" />
-            <enum name="small" value="2" />
-            <enum name="medium" value="3" />
-            <enum name="large" value="4" />
+            <enum name="font_size_xxxs" value="1" />
+            <enum name="font_size_xxs" value="2" />
+            <enum name="font_size_xs" value="3" />
+            <enum name="font_size_sm" value="4" />
+            <enum name="font_size_md" value="5" />
+            <enum name="font_size_lg" value="6" />
+            <enum name="font_size_xl" value="7" />
+            <enum name="font_size_xxl" value="8" />
+            <enum name="font_size_xxxl" value="9" />
         </attr>
     </declare-styleable>
 

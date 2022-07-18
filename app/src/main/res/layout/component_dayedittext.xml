@@ -27,10 +27,8 @@
         android:layout_height="wrap_content"
         android:lines="1"
         android:visibility="gone"
-        app:appearance="error"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:size="small" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

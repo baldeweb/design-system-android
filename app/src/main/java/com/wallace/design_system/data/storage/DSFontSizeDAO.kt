@@ -28,37 +28,37 @@ class DSFontSizeDAO(
 
     internal suspend fun getFontSizeXXXS() = getContent().find {
         it.name == DS_FONT_SIZE_XXXS
-    }?.values?.first()?.value?.toInt() ?: 10
+    }?.values?.first()?.value?.toFloat() ?: 10F
 
     internal suspend fun getFontSizeXXS() = getContent().find {
         it.name == DS_FONT_SIZE_XXS
-    }?.values?.first()?.value?.toInt() ?: 12
+    }?.values?.first()?.value?.toFloat() ?: 12F
 
     internal suspend fun getFontSizeXS() = getContent().find {
         it.name == DS_FONT_SIZE_XS
-    }?.values?.first()?.value?.toInt() ?: 14
+    }?.values?.first()?.value?.toFloat() ?: 14F
 
     internal suspend fun getFontSizeSM() = getContent().find {
         it.name == DS_FONT_SIZE_SM
-    }?.values?.first()?.value?.toInt() ?: 16
+    }?.values?.first()?.value?.toFloat() ?: 16F
 
     internal suspend fun getFontSizeMD() = getContent().find {
         it.name == DS_FONT_SIZE_MD
-    }?.values?.first()?.value?.toInt() ?: 18
+    }?.values?.first()?.value?.toFloat() ?: 18F
 
     internal suspend fun getFontSizeLG() = getContent().find {
         it.name == DS_FONT_SIZE_LG
-    }?.values?.first()?.value?.toInt() ?: 20
+    }?.values?.first()?.value?.toFloat() ?: 20F
 
     internal suspend fun getFontSizeXL() = getContent().find {
         it.name == DS_FONT_SIZE_XL
-    }?.values?.first()?.value?.toInt() ?: 24
+    }?.values?.first()?.value?.toFloat() ?: 24F
 
     internal suspend fun getFontSizeXXL() = getContent().find {
         it.name == DS_FONT_SIZE_XXL
-    }?.values?.first()?.value?.toInt() ?: 32
+    }?.values?.first()?.value?.toFloat() ?: 32F
 
     internal suspend fun getFontSizeXXXL() = getContent().find {
         it.name == DS_FONT_SIZE_XXXL
-    }?.values?.first()?.value?.toInt() ?: 48
+    }?.values?.first()?.value?.toFloat() ?: 48F
 }

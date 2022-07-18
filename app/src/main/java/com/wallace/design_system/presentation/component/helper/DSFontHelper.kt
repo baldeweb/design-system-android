@@ -42,7 +42,7 @@ interface DSFontHelper {
             else -> null
         }
 
-    suspend fun getFontSize(fontSizeDAO: DSFontSizeDAO, value: String): Int = when (value) {
+    suspend fun getFontSize(fontSizeDAO: DSFontSizeDAO, value: String): Float = when (value) {
         DS_FONT_SIZE_XXXS -> fontSizeDAO.getFontSizeXXXS()
         DS_FONT_SIZE_XXS -> fontSizeDAO.getFontSizeXXS()
         DS_FONT_SIZE_XS -> fontSizeDAO.getFontSizeXS()
@@ -52,7 +52,7 @@ interface DSFontHelper {
         DS_FONT_SIZE_XL -> fontSizeDAO.getFontSizeXL()
         DS_FONT_SIZE_XXL -> fontSizeDAO.getFontSizeXXL()
         DS_FONT_SIZE_XXXL -> fontSizeDAO.getFontSizeXXXL()
-        else -> 14
+        else -> 14F
     }
 
     suspend fun getTypeFace(
