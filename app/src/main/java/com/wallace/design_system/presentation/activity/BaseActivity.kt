@@ -1,5 +1,8 @@
 package com.wallace.design_system.presentation.activity
 
+import android.app.Activity
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -70,5 +73,14 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
             }
             binding.lltLoading.visibility = View.GONE
         }
+    }
+
+    protected fun navigateTo(actionName: String) {
+        startActivity(
+            Intent(actionName).apply {
+                setPackage(packageName)
+                addFlags(FLAG_ACTIVITY_NEW_TASK)
+            }
+        )
     }
 }

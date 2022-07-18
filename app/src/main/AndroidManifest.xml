@@ -17,6 +17,30 @@
         android:theme="@style/Theme.Designsystemandroid"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.activity.ClassicLayoutActivity"
+            android:launchMode="standard"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.design_system.classic_layout.open" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.activity.ComposeLayoutActivity"
+            android:launchMode="standard"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.design_system.compose_layout.open" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".presentation.activity.DesignSystemActivity"
             android:exported="true"
             android:launchMode="standard"
