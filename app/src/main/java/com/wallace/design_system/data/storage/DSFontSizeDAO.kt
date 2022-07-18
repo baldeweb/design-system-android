@@ -9,9 +9,13 @@ import com.wallace.design_system.data.utils.convertToObject
 
 class DSFontSizeDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
-) : DataStoreManager<String>(context, dataStore, prefsKey) {
+) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
 
-    private suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+
+    override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
+        return super.getTokenByReference(referenceName)
+    }
 
     internal suspend fun getFontSizeXXXS() = getContent().find {
         it.name == DSFontConstants.DS_FONT_SIZE_XXXS

@@ -13,8 +13,13 @@ import com.wallace.design_system.data.utils.convertToObject
 
 class DSShadowDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
-) : DataStoreManager<String>(context, dataStore, prefsKey) {
-    private suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
+
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+
+    override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
+        return super.getTokenByReference(referenceName)
+    }
 
     private suspend fun getShadowLevel(shadowName: String): DesignSystemModel.DSShadow {
         val shadow = getContent().find { it.name == shadowName }

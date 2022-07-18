@@ -10,9 +10,18 @@ import com.wallace.design_system.data.utils.convertToObject
 
 class DSFontFamilyDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
-) : DataStoreManager<String>(context, dataStore, prefsKey) {
-    suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
 
-    internal suspend fun getFontFamilyBase() = getContent().find { it.name == DS_FONT_FAMILY_BASE }
-    internal suspend fun getFontFamilyHighlight() = getContent().find { it.name == DS_FONT_FAMILY_HIGHLIGHT }
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+
+    override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
+        return super.getTokenByReference(referenceName)
+    }
+
+    internal suspend fun getFontFamilyBase() = getContent().find {
+        it.name == DS_FONT_FAMILY_BASE
+    }
+    internal suspend fun getFontFamilyHighlight() = getContent().find {
+        it.name == DS_FONT_FAMILY_HIGHLIGHT
+    }
 }

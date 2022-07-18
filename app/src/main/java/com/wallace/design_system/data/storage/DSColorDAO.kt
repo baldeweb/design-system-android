@@ -37,12 +37,13 @@ import com.wallace.design_system.data.utils.convertToObject
 
 class DSColorDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
-) : DataStoreManager<String>(context, dataStore, prefsKey) {
-    suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
 
-    suspend fun getTokenByReference(referenceName: String) = getContent().find {
-        it.name == referenceName
-    }?.values
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+
+    override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
+        return super.getTokenByReference(referenceName)
+    }
 
     //  Primary Color
     internal suspend fun getBrandColorPrimaryPure() = getContent().find {
