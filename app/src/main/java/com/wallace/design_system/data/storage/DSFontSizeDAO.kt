@@ -22,7 +22,7 @@ class DSFontSizeDAO(
     override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> =
         getData().convertToObject()
 
-    override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
+    override suspend fun getTokenByReference(referenceName: String): DesignSystemModel.Value? {
         return super.getTokenByReference(referenceName)
     }
 

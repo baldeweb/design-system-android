@@ -28,7 +28,7 @@ class DayTextView(
     val lineHeightDAO: DSLineHeightDAO,
     context: Context,
     attrs: AttributeSet
-) : AppCompatTextView(context, attrs) {
+) : AppCompatTextView(context, attrs), DSFontHelper, DSColorHelper {
 
     init {
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.DayTextView)
@@ -117,5 +117,25 @@ class DayTextView(
 
     fun setHtmlText(textHtml: String) {
         text = textHtml.fromHTMLtoText()
+    }
+
+    override suspend fun getFontFamily(fontFamilyDAO: DSFontFamilyDAO, value: String): String? {
+        return super.getFontFamily(fontFamilyDAO, value)
+    }
+
+    override suspend fun getFontWeight(fontWeightDAO: DSFontWeightDAO, value: String): String? {
+        return super.getFontWeight(fontWeightDAO, value)
+    }
+
+    override suspend fun getFontSize(fontSizeDAO: DSFontSizeDAO, value: String): Int {
+        return super.getFontSize(fontSizeDAO, value)
+    }
+
+    override suspend fun getColorPrimary(colorDAO: DSColorDAO, value: String): String? {
+        return super.getColorPrimary(colorDAO, value)
+    }
+
+    override suspend fun getNeutralColor(colorDAO: DSColorDAO, value: String): String? {
+        return super.getNeutralColor(colorDAO, value)
     }
 }

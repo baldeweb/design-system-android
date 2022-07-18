@@ -30,6 +30,11 @@ import com.wallace.design_system.data.utils.DSColorConstants.DS_HIGHLIGHT_COLOR_
 import com.wallace.design_system.data.utils.DSColorConstants.DS_HIGHLIGHT_COLOR_LIGHT
 import com.wallace.design_system.data.utils.DSColorConstants.DS_HIGHLIGHT_COLOR_MEDIUM
 import com.wallace.design_system.data.utils.DSColorConstants.DS_HIGHLIGHT_COLOR_PURE
+import com.wallace.design_system.data.utils.DSColorConstants.DS_NEUTRAL_COLOR_DARK
+import com.wallace.design_system.data.utils.DSColorConstants.DS_NEUTRAL_COLOR_LIGHT
+import com.wallace.design_system.data.utils.DSColorConstants.DS_NEUTRAL_COLOR_MEDIUM
+import com.wallace.design_system.data.utils.DSColorConstants.DS_NEUTRAL_COLOR_MEDIUM_DARK
+import com.wallace.design_system.data.utils.DSColorConstants.DS_NEUTRAL_COLOR_MEDIUM_LIGHT
 
 interface DSColorHelper {
 
@@ -63,6 +68,15 @@ interface DSColorHelper {
         DS_HIGHLIGHT_COLOR_LIGHT -> colorDAO.getHighlightColorLight()
         DS_HIGHLIGHT_COLOR_MEDIUM -> colorDAO.getHighlightColorMedium()
         DS_HIGHLIGHT_COLOR_DARK -> colorDAO.getHighlightColorDark()
+        else -> ""
+    }
+
+    suspend fun getNeutralColor(colorDAO: DSColorDAO, value: String): String? = when (value) {
+        DS_NEUTRAL_COLOR_LIGHT -> colorDAO.getNeutralColorLight()
+        DS_NEUTRAL_COLOR_DARK -> colorDAO.getNeutralColorDark()
+        DS_NEUTRAL_COLOR_MEDIUM_LIGHT -> colorDAO.getNeutralColorMediumLight()
+        DS_NEUTRAL_COLOR_MEDIUM -> colorDAO.getNeutralColorMedium()
+        DS_NEUTRAL_COLOR_MEDIUM_DARK -> colorDAO.getNeutralColorMediumDark()
         else -> ""
     }
 

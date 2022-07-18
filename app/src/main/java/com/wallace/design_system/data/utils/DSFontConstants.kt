@@ -1,6 +1,10 @@
 package com.wallace.design_system.data.utils
 
 object DSFontConstants {
+    //  Font Name
+    const val DS_FONT_MULISH = "Mulish"
+    const val DS_FONT_MUSEO = "Museo"
+
     //  Font Family
     const val DS_FONT_FAMILY = "font-family"
     const val DS_FONT_FAMILY_BASE = "font-family-base"

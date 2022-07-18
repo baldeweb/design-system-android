@@ -7,6 +7,6 @@ interface DataStoreHelper {
 
     suspend fun getTokenByReference(referenceName: String) = getContent().find {
         it.name == referenceName
-    }?.values
+    }?.values?.find { it.reference == referenceName }
 
 }

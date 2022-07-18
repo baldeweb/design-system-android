@@ -1,11 +1,13 @@
 package com.wallace.design_system.presentation.component
 
+import com.wallace.design_system.R
 import com.wallace.design_system.data.storage.DSFontFamilyDAO
 import com.wallace.design_system.data.storage.DSFontSizeDAO
 import com.wallace.design_system.data.storage.DSFontWeightDAO
-import com.wallace.design_system.data.utils.DSFontConstants
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_FAMILY_BASE
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_FAMILY_HIGHLIGHT
+import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_MULISH
+import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_MUSEO
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_SIZE_LG
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_SIZE_MD
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_SIZE_SM
@@ -25,8 +27,8 @@ interface DSFontHelper {
 
     suspend fun getFontFamily(fontFamilyDAO: DSFontFamilyDAO, value: String): String? =
         when (value) {
-            DS_FONT_FAMILY_BASE -> fontFamilyDAO.getFontFamilyBase()
-            DS_FONT_FAMILY_HIGHLIGHT -> fontFamilyDAO.getFontFamilyHighlight()
+            DS_FONT_FAMILY_BASE -> fontFamilyDAO.getFontFamilyBase()?.name
+            DS_FONT_FAMILY_HIGHLIGHT -> fontFamilyDAO.getFontFamilyHighlight()?.name
             else -> null
         }
 
@@ -51,5 +53,31 @@ interface DSFontHelper {
         DS_FONT_SIZE_XXL -> fontSizeDAO.getFontSizeXXL()
         DS_FONT_SIZE_XXXL -> fontSizeDAO.getFontSizeXXXL()
         else -> 14
+    }
+
+    suspend fun getTypeFace(
+        fontFamilyDAO: DSFontFamilyDAO, fontWeightDAO: DSFontWeightDAO, value: String
+    ): Int {
+        val fontFamilyBaseReference = getFontFamily(fontFamilyDAO, DS_FONT_FAMILY_BASE) ?: ""
+        val fontFamilyHighlightReference = getFontFamily(fontFamilyDAO, DS_FONT_FAMILY_HIGHLIGHT) ?: ""
+        val fontWeightBase = fontWeightDAO.getTokenByReference(fontFamilyBaseReference)?.value
+        val fontWeightHighlight = fontWeightDAO.getTokenByReference(fontFamilyHighlightReference)?.value
+
+        return when(fontFamilyBaseReference) {
+            DS_FONT_MULISH -> {
+                when {
+                    fontWeightBase == "black" || fontWeightHighlight == "900" -> R.font.mulish_black
+                    fontWeightBase == "bold" || fontWeightHighlight == "700" -> R.font.mulish_bold
+                    fontWeightBase == "medium" || fontWeightHighlight == "500" -> R.font.mulish_medium
+                    fontWeightBase == "regular" || fontWeightHighlight == "300" -> R.font.mulish_regular
+                    fontWeightBase == "regular" || fontWeightHighlight == "300" -> R.font.mulish_regular
+                    else -> 0
+                }
+            }
+            DS_FONT_MUSEO -> {
+                0
+            }
+            else -> R.font.mulish_regular
+        }
     }
 }
