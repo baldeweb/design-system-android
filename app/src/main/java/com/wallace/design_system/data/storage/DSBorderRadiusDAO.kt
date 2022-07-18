@@ -3,17 +3,36 @@ package com.wallace.design_system.data.storage
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import com.google.gson.Gson
 import com.wallace.design_system.data.model.DesignSystemModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS_CIRCULAR
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS_LG
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS_MD
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS_NONE
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS_PILL
+import com.wallace.design_system.data.utils.DSBorderConstants.DS_BORDER_RADIUS_SM
+import com.wallace.design_system.data.utils.convertToObject
 
 class DSBorderRadiusDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
 ) : DataStoreManager<String>(context, dataStore, prefsKey) {
-    suspend fun getDataConverted(): DesignSystemModel.Data? {
-        return Gson().fromJson(getData().first(), DesignSystemModel.Data::class.java)
+    private suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+
+    internal suspend fun getBorderRadiusNone() = getContent().find {
+        it.name == DS_BORDER_RADIUS_NONE
+    }
+    internal suspend fun getBorderRadiusSm() = getContent().find {
+        it.name == DS_BORDER_RADIUS_SM
+    }
+    internal suspend fun getBorderRadiusMd() = getContent().find {
+        it.name == DS_BORDER_RADIUS_MD
+    }
+    internal suspend fun getBorderRadiusLg() = getContent().find {
+        it.name == DS_BORDER_RADIUS_LG
+    }
+    internal suspend fun getBorderRadiusPill() = getContent().find {
+        it.name == DS_BORDER_RADIUS_PILL
+    }
+    internal suspend fun getBorderRadiusCircular() = getContent().find {
+        it.name == DS_BORDER_RADIUS_CIRCULAR
     }
 }

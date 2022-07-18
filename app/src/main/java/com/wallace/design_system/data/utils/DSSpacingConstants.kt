@@ -19,10 +19,10 @@ object DSSpacingConstants {
 
     //  Spacing Insets
     const val DS_SPACING_INSETS = "spacing-insets"
-    const val DS_SPACING_INSETS_QUARCK = "spacing-insets-quarck"
-    const val DS_SPACING_INSETS_NANO = "spacing-insets-nano"
-    const val DS_SPACING_INSETS_XS = "spacing-insets-xs"
-    const val DS_SPACING_INSETS_SM = "spacing-insets-sm"
-    const val DS_SPACING_INSETS_MD = "spacing-insets-md"
-    const val DS_SPACING_INSETS_LG = "spacing-insets-lg"
+    const val DS_SPACING_INSET_QUARCK = "spacing-inset-quarck"
+    const val DS_SPACING_INSET_NANO = "spacing-inset-nano"
+    const val DS_SPACING_INSET_XS = "spacing-inset-xs"
+    const val DS_SPACING_INSET_SM = "spacing-inset-sm"
+    const val DS_SPACING_INSET_MD = "spacing-inset-md"
+    const val DS_SPACING_INSET_LG = "spacing-inset-lg"
 }

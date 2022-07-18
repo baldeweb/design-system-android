@@ -3,13 +3,32 @@ package com.wallace.design_system.data.storage
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import com.google.gson.Gson
 import com.wallace.design_system.data.model.DesignSystemModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVEL_INTENSE
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVEL_LIGHT
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVEL_MEDIUM
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVEL_SEMIOPAQUE
+import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVEL_SEMI_TRANSPARENT
+import com.wallace.design_system.data.utils.convertToObject
 
 class DSOpacityLevelsDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
-) : DataStoreManager<String>(context, dataStore, prefsKey)
+) : DataStoreManager<String>(context, dataStore, prefsKey) {
+    private suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+
+    internal suspend fun getOpacityLevelSemiOpaque() = getContent().find {
+        it.name == DS_OPACITY_LEVEL_SEMIOPAQUE
+    }
+    internal suspend fun getOpacityLevelIntense() = getContent().find {
+        it.name == DS_OPACITY_LEVEL_INTENSE
+    }
+    internal suspend fun getOpacityLevelMedium() = getContent().find {
+        it.name == DS_OPACITY_LEVEL_MEDIUM
+    }
+    internal suspend fun getOpacityLevelLight() = getContent().find {
+        it.name == DS_OPACITY_LEVEL_LIGHT
+    }
+    internal suspend fun getOpacityLevelSemiTransparent() = getContent().find {
+        it.name == DS_OPACITY_LEVEL_SEMI_TRANSPARENT
+    }
+}

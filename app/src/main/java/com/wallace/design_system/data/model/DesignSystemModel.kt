@@ -33,7 +33,9 @@ class DesignSystemModel{
         @SerializedName("values")
         var values: List<Value>? = arrayListOf()
     ) {
-
+        override fun toString(): String {
+            return "DsToken(name=$name, type=$type, values=$values)"
+        }
     }
 
     data class Value(
@@ -45,5 +47,29 @@ class DesignSystemModel{
         var value: String? = null,
         @SerializedName("weight")
         var weight: Double? = null
-    )
+    ) {
+        override fun toString(): String {
+            return "Value(alpha=$alpha, reference=$reference, value=$value, weight=$weight)"
+        }
+    }
+
+    data class DSShadow(
+        var value: DSShadowValue? = null,
+        var alpha: Double? = null,
+        var reference: String? = null
+    ) {
+        override fun toString(): String {
+            return "DSShadow(value=$value, alpha=$alpha, reference=$reference)"
+        }
+    }
+
+    data class DSShadowValue(
+        var x: Int? = null,
+        var y: Int? = null,
+        var b: Int? = null
+    ) {
+        override fun toString(): String {
+            return "DSShadowValue(x=$x, y=$y, b=$b)"
+        }
+    }
 }
