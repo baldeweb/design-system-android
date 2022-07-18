@@ -16,7 +16,8 @@ class DSSpacingInsetDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
 ) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
 
-    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> =
+        getData().convertToObject()
 
     override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
         return super.getTokenByReference(referenceName)
@@ -24,20 +25,25 @@ class DSSpacingInsetDAO(
 
     internal suspend fun getSpacingInsetQuarck() = getContent().find {
         it.name == DS_SPACING_INSET_QUARCK
-    }
+    }?.values?.first()?.value?.toInt() ?: 10
+
     internal suspend fun getSpacingInsetNano() = getContent().find {
         it.name == DS_SPACING_INSET_NANO
-    }
+    }?.values?.first()?.value?.toInt() ?: 10
+
     internal suspend fun getSpacingInsetXs() = getContent().find {
         it.name == DS_SPACING_INSET_XS
-    }
+    }?.values?.first()?.value?.toInt() ?: 10
+
     internal suspend fun getSpacingInsetSm() = getContent().find {
         it.name == DS_SPACING_INSET_SM
-    }
+    }?.values?.first()?.value?.toInt() ?: 10
+
     internal suspend fun getSpacingInsetMd() = getContent().find {
         it.name == DS_SPACING_INSET_MD
-    }
+    }?.values?.first()?.value?.toInt() ?: 10
+
     internal suspend fun getSpacingInsetLg() = getContent().find {
         it.name == DS_SPACING_INSET_LG
-    }
+    }?.values?.first()?.value?.toInt() ?: 10
 }

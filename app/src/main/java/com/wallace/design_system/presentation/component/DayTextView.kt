@@ -8,13 +8,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
 import com.wallace.design_system.R
 import com.wallace.design_system.data.storage.*
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_DEFAULT
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_LG
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_MD
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_SM
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_XL
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_XS
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_XXL
 import com.wallace.design_system.data.utils.DayTextViewConstants.BLUE
 import com.wallace.design_system.data.utils.DayTextViewConstants.DARK
 import com.wallace.design_system.data.utils.DayTextViewConstants.ERROR
@@ -25,9 +18,6 @@ import com.wallace.design_system.data.utils.DayTextViewConstants.SMALL
 import com.wallace.design_system.data.utils.DayTextViewConstants.XSMALL
 import com.wallace.design_system.data.utils.fromHTMLtoText
 import com.wallace.design_system.data.utils.getDensityDpi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @SuppressLint("ViewConstructor")
 class DayTextView(
@@ -47,23 +37,6 @@ class DayTextView(
         setSize(attributes.getString(R.styleable.DayTextView_size))
 
         attributes.recycle()
-    }
-
-    private fun getLineHeight(value: String): Float {
-        var lineHeight = 1F
-        CoroutineScope(Dispatchers.Default).launch {
-            lineHeight = when(value) {
-                DS_LINE_HEIGHT_DEFAULT -> lineHeightDAO.getLineHeightDefault()
-                DS_LINE_HEIGHT_XS -> lineHeightDAO.getLineHeightXs()
-                DS_LINE_HEIGHT_SM -> lineHeightDAO.getLineHeightSm()
-                DS_LINE_HEIGHT_MD -> lineHeightDAO.getLineHeightMd()
-                DS_LINE_HEIGHT_LG -> lineHeightDAO.getLineHeightLg()
-                DS_LINE_HEIGHT_XL -> lineHeightDAO.getLineHeightXl()
-                DS_LINE_HEIGHT_XXL -> lineHeightDAO.getLineHeightXxl()
-                else -> return@launch
-            }
-        }
-        return lineHeight
     }
 
     fun setAppearance(style: String?) {

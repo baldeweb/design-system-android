@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import com.wallace.design_system.data.model.DesignSystemModel
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_DEFAULT
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_LG
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_MD
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_SM
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_XL
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_XS
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT_XXL
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_DEFAULT
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_LG
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_MD
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_SM
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_XL
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_XS
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT_XXL
 import com.wallace.design_system.data.utils.convertToObject
 
 class DSLineHeightDAO(

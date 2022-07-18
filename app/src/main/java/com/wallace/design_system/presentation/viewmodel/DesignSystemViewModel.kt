@@ -3,7 +3,7 @@ package com.wallace.design_system.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.wallace.design_system.data.utils.DSColorConstants.DS_COLOR
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_FAMILY
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW
+import com.wallace.design_system.data.utils.DSShadowConstants.DS_SHADOW
 import com.wallace.design_system.data.utils.LogUtils.logD
 import com.wallace.design_system.domain.use_case.DesignSystemUseCase
 import kotlinx.coroutines.launch

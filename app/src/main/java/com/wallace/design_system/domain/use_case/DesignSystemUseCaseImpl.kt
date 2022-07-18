@@ -11,9 +11,9 @@ import com.wallace.design_system.data.utils.DSColorConstants.DS_GRADIENT_COLOR
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_FAMILY
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_SIZE
 import com.wallace.design_system.data.utils.DSFontConstants.DS_FONT_WEIGHT
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_LINE_HEIGHT
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_OPACITY_LEVELS
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW
+import com.wallace.design_system.data.utils.DSLineHeightConstants.DS_LINE_HEIGHT
+import com.wallace.design_system.data.utils.DSOpacityLevelsConstants.DS_OPACITY_LEVELS
+import com.wallace.design_system.data.utils.DSShadowConstants.DS_SHADOW
 import com.wallace.design_system.data.utils.DSSpacingConstants.DS_SPACING
 import com.wallace.design_system.data.utils.DSSpacingConstants.DS_SPACING_INSETS
 import com.wallace.design_system.data.utils.convertToObject

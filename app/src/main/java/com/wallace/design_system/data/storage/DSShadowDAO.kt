@@ -5,10 +5,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import com.google.gson.Gson
 import com.wallace.design_system.data.model.DesignSystemModel
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW_LEVEL_1
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW_LEVEL_2
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW_LEVEL_3
-import com.wallace.design_system.data.utils.DSMiscellaneousConstants.DS_SHADOW_LEVEL_4
+import com.wallace.design_system.data.utils.DSShadowConstants.DS_SHADOW_LEVEL_1
+import com.wallace.design_system.data.utils.DSShadowConstants.DS_SHADOW_LEVEL_2
+import com.wallace.design_system.data.utils.DSShadowConstants.DS_SHADOW_LEVEL_3
+import com.wallace.design_system.data.utils.DSShadowConstants.DS_SHADOW_LEVEL_4
 import com.wallace.design_system.data.utils.convertToObject
 
 class DSShadowDAO(
