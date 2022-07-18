@@ -12,7 +12,8 @@ class DSFontFamilyDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
 ) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
 
-    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> =
+        getData().convertToObject()
 
     override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
         return super.getTokenByReference(referenceName)
@@ -20,8 +21,9 @@ class DSFontFamilyDAO(
 
     internal suspend fun getFontFamilyBase() = getContent().find {
         it.name == DS_FONT_FAMILY_BASE
-    }
+    }?.values?.first()?.value ?: ""
+
     internal suspend fun getFontFamilyHighlight() = getContent().find {
         it.name == DS_FONT_FAMILY_HIGHLIGHT
-    }
+    }?.values?.first()?.value ?: ""
 }

@@ -15,7 +15,8 @@ class DSBorderWidthDAO(
     context: Context, dataStore: DataStore<Preferences>, prefsKey: Preferences.Key<String>
 ) : DataStoreManager<String>(context, dataStore, prefsKey), DataStoreHelper {
 
-    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> = getData().convertToObject()
+    override suspend fun getContent(): ArrayList<DesignSystemModel.DsToken> =
+        getData().convertToObject()
 
     override suspend fun getTokenByReference(referenceName: String): List<DesignSystemModel.Value>? {
         return super.getTokenByReference(referenceName)
@@ -23,17 +24,21 @@ class DSBorderWidthDAO(
 
     internal suspend fun getBorderWidthNone() = getContent().find {
         it.name == DS_BORDER_WIDTH_NONE
-    }
+    }?.values?.first()?.value?.toInt() ?: 0
+
     internal suspend fun getBorderWidthHairline() = getContent().find {
         it.name == DS_BORDER_WIDTH_HAIRLINE
-    }
+    }?.values?.first()?.value?.toInt() ?: 0
+
     internal suspend fun getBorderWidthThin() = getContent().find {
         it.name == DS_BORDER_WIDTH_THIN
-    }
+    }?.values?.first()?.value?.toInt() ?: 0
+
     internal suspend fun getBorderWidthThick() = getContent().find {
         it.name == DS_BORDER_WIDTH_THICK
-    }
+    }?.values?.first()?.value?.toInt() ?: 0
+
     internal suspend fun getBorderWidthHeavy() = getContent().find {
         it.name == DS_BORDER_WIDTH_HEAVY
-    }
+    }?.values?.first()?.value?.toInt() ?: 0
 }
